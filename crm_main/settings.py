@@ -1,20 +1,11 @@
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
-
 import os
+from decouple import config
 from pathlib import Path
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd!v8jla883_a4dl+24)dt9nrv3$1%1*zt8_r477&=4f%e=b2!m'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
-
-
-# Application definition
+SECRET_KEY = config('SECRET_KEY')
+DEBUG = config('DEBUG', cast=bool, default=False)
 
 DEFAULT_APPS = [
     'django.contrib.admin',
@@ -67,7 +58,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'crm_main.wsgi.application'
-
 
 
 
